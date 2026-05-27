@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>北門全球科技｜AI精準復健展場網站</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:"Microsoft JhengHei",sans-serif;
+      background:#f8f4ee;
+      color:#4b3826;
+      line-height:1.8;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .container{
+      width:90%;
+      max-width:1300px;
+      margin:auto;
+    }
+
+    /* navbar */
+
+    header{
+      background:white;
+      position:sticky;
+      top:0;
+      z-index:999;
+      box-shadow:0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .navbar{
+      height:85px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo-wrap{
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .logo-img{
+      width:70px;
+      height:auto;
+    }
+
+    .logo-text{
+      font-size:28px;
+      font-weight:bold;
+      color:#9a6b38;
+    }
+
+    nav{
+      display:flex;
+      gap:30px;
+    }
+
+    nav a{
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#c38b4b;
+    }
+
+    /* hero */
+
+    .hero{
+      background:
+      linear-gradient(
+        rgba(255,248,238,0.95),
+        rgba(255,248,238,0.95)
+      );
+      min-height:700px;
+      display:flex;
+      align-items:center;
+    }
+
+    .hero-content{
+      max-width:750px;
+    }
+
+    .hero h1{
+      font-size:64px;
+      line-height:1.2;
+      margin-bottom:25px;
+      color:#5a3f22;
+    }
+
+    .hero p{
+      font-size:22px;
+      color:#6f5b47;
+      margin-bottom:35px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:16px 36px;
+      border:none;
+      border-radius:999px;
+      background:#b67b3f;
+      color:white;
+      font-size:16px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:#9c6630;
+      transform:translateY(-3px);
+    }
+
+    /* section */
+
+    section{
+      padding:100px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:42px;
+      margin-bottom:10px;
+      color:#5a3f22;
+    }
+
+    .section-title p{
+      color:#7a6755;
+      font-size:18px;
+    }
+
+    /* about */
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .about-content{
+      max-width:900px;
+      margin:auto;
+      text-align:center;
+    }
+
+    .about-content h3{
+      font-size:38px;
+      margin-bottom:25px;
+      color:#5a3f22;
+    }
+
+    .about-content p{
+      font-size:18px;
+      color:#6b5847;
+      margin-bottom:20px;
+    }
+
+    /* products */
+
+    .products{
+      background:#fffaf3;
+    }
+
+    .product-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:25px;
+    }
+
+    .card{
+      background:white;
+      border-radius:25px;
+      overflow:hidden;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+    }
+
+    .card-img{
+      height:250px;
+      background-size:contain;
+      background-repeat:no-repeat;
+      background-position:center;
+      background-color:white;
+    }
+
+    .card-body{
+      padding:20px;
+    }
+
+    .card-body h3{
+      margin-bottom:10px;
+      color:#5a3f22;
+    }
+
+    .card-body p{
+      color:#766351;
+      font-size:15px;
+    }
+
+    /* platform */
+
+    .platform-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:25px;
+    }
+
+    .platform-card{
+      background:white;
+      border-radius:25px;
+      padding:35px;
+      text-align:center;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .platform-card h3{
+      margin-bottom:15px;
+      color:#5a3f22;
+    }
+
+    /* scene */
+
+    .scene-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:25px;
+    }
+
+    .scene-card{
+      background:white;
+      border-radius:25px;
+      padding:30px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .scene-card h3{
+      margin-bottom:20px;
+      color:#5a3f22;
+    }
+
+    .scene-card ul{
+      padding-left:20px;
+    }
+
+    .scene-card li{
+      margin-bottom:10px;
+      color:#6f5b47;
+    }
+
+    /* contact */
+
+    .contact{
+      background:#fffaf3;
+    }
+
+    .contact-box{
+      background:white;
+      border-radius:30px;
+      padding:50px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+    }
+
+    .info-item{
+      margin-bottom:20px;
+      padding:20px;
+      border-radius:18px;
+      background:#f8f2e8;
+    }
+
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    input,
+    textarea{
+      padding:16px;
+      border:none;
+      border-radius:16px;
+      background:#f6f1e8;
+      font-size:16px;
+    }
+
+    textarea{
+      min-height:140px;
+      resize:none;
+    }
+
+    footer{
+      background:#ead8bf;
+      padding:30px;
+      text-align:center;
+      color:#6f5b47;
+    }
+
+    /* responsive */
+
+    @media(max-width:1100px){
+
+      .product-grid,
+      .platform-grid,
+      .scene-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+    @media(max-width:768px){
+
+      nav{
+        display:none;
+      }
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .product-grid,
+      .platform-grid,
+      .scene-grid{
+        grid-template-columns:1fr;
+      }
+
+      section{
+        padding:70px 0;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- navbar -->
+
+  <header>
+
+    <div class="container navbar">
+
+      <div class="logo-wrap">
+
+        <img src="images/logo.jpg" class="logo-img">
+
+        <div class="logo-text">
+          北門全球科技
+        </div>
+
+      </div>
+
+      <nav>
+        <a href="#about">關於我們</a>
+        <a href="#products">產品介紹</a>
+        <a href="#platform">AI數據平台</a>
+        <a href="#scene">場域應用</a>
+        <a href="#contact">聯絡我們</a>
+      </nav>
+
+    </div>
+
+  </header>
+
+  <!-- hero -->
+
+  <section class="hero">
+
+    <div class="container">
+
+      <div class="hero-content">
+
+        <h1>
+          AI 精準復健科技<br>
+          打造智慧長照未來
+        </h1>
+
+        <p>
+          北門全球科技整合智慧復健設備、
+          AI數據分析與長照場域應用，
+          提供高齡友善且具溫度的智慧照護方案。
+        </p>
+
+        <a href="#products" class="btn">
+          查看展場設備
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- about -->
+
+  <section id="about">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>關於我們</h2>
+        <p>智慧照護 × AI復健 × 長照科技</p>
+      </div>
+
+      <div class="about-grid">
+
+        <div class="about-content">
+
+          <h3>北門全球科技</h3>
+
+          <p>
+            北門全球科技專注於智慧照護、
+            AI精準復健與高齡科技整合，
+            致力打造更有效率、更有溫度的智慧長照環境。
+          </p>
+
+          <p>
+            透過智慧復健設備、AI數據平台、
+            即時監測與雲端分析，
+            協助醫療、長照與居家場域提升照護品質。
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- products -->
+
+  <section class="products" id="products">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>AI精準復健組合機群</h2>
+        <p>12項智慧復健設備展示</p>
+      </div>
+
+      <div class="product-grid">
+
+        <div class="card">
+          <div class="card-img" style="background-image:url('images/bicep.jpg')"></div>
+          <div class="card-body">
+            <h3>二頭機</h3>
+            <p>上肢二頭肌復健訓練。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" style="background-image:url('images/inner-leg.jpg')"></div>
+          <div class="card-body">
+            <h3>夾腿機</h3>
+            <p>內收肌群與下肢穩定訓練。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" style="background-image:url('images/twist.jpg')"></div>
+          <div class="card-body">
+            <h3>扭腰機</h3>
+            <p>核心旋轉與軀幹控制訓練。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" style="background-image:url('images/leg-raise.jpg')"></div>
+          <div class="card-body">
+            <h3>抬腿機</h3>
+            <p>髖屈與下肢抬舉訓練。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" style="background-image:url('images/shoulder.jpg')"></div>
+          <div class="card-body">
+            <h3>肩推機</h3>
+            <p>肩部與上肢推舉訓練。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" style="background-image:url('images/kickback.jpg')"></div>
+          <div class="card-body">
+            <h3>後踢機</h3>
+            <p>臀部與髖伸展訓練。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" style="background-image:url('images/chest.jpg')"></div>
+          <div class="card-body">
+            <h3>胸推機</h3>
+            <p>胸肌與推力訓練。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" style="background-image:url('images/lat-pull.jpg')"></div>
+          <div class="card-body">
+            <h3>高拉機</h3>
+            <p>背部與拉力訓練。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" style="background-image:url('images/leg-press.jpg')"></div>
+          <div class="card-body">
+            <h3>推腿機</h3>
+            <p>下肢推蹬與站立訓練。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" style="background-image:url('images/squat.jpg')"></div>
+          <div class="card-body">
+            <h3>深蹲機</h3>
+            <p>下肢與核心協調訓練。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" style="background-image:url('images/abs.jpg')"></div>
+          <div class="card-body">
+            <h3>腹部機</h3>
+            <p>核心腹部肌群訓練。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" style="background-image:url('images/butterfly.jpg')"></div>
+          <div class="card-body">
+            <h3>蝴蝶機</h3>
+            <p>胸肩協調與肌力訓練。</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- platform -->
+
+  <section id="platform">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>AI數據平台</h2>
+        <p>智慧復健數據整合系統</p>
+      </div>
+
+      <div class="platform-grid">
+
+        <div class="platform-card">
+          <h3>AI分析</h3>
+          <p>智慧分析訓練數據與復健狀態。</p>
+        </div>
+
+        <div class="platform-card">
+          <h3>雲端數據</h3>
+          <p>即時上傳與遠端管理。</p>
+        </div>
+
+        <div class="platform-card">
+          <h3>即時監測</h3>
+          <p>掌握使用者復健狀況。</p>
+        </div>
+
+        <div class="platform-card">
+          <h3>使用者報表</h3>
+          <p>產出完整復健紀錄與分析。</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- scene -->
+
+  <section id="scene">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>場域應用</h2>
+        <p>智慧復健導入多元照護場域</p>
+      </div>
+
+      <div class="scene-grid">
+
+        <div class="scene-card">
+
+          <h3>復健病房</h3>
+
+          <ul>
+            <li>科學化復健管理</li>
+            <li>即時數據分析</li>
+            <li>提升復能效率</li>
+            <li>加速功能恢復</li>
+          </ul>
+
+        </div>
+
+        <div class="scene-card">
+
+          <h3>日照中心</h3>
+
+          <ul>
+            <li>團體互動訓練</li>
+            <li>提升長輩參與感</li>
+            <li>延緩肌力退化</li>
+            <li>增加活動意願</li>
+          </ul>
+
+        </div>
+
+        <div class="scene-card">
+
+          <h3>長照機構</h3>
+
+          <ul>
+            <li>降低照護負擔</li>
+            <li>提升管理效率</li>
+            <li>數位化紀錄</li>
+            <li>提升服務品質</li>
+          </ul>
+
+        </div>
+
+        <div class="scene-card">
+
+          <h3>居家照護</h3>
+
+          <ul>
+            <li>延伸復健到家中</li>
+            <li>遠端健康追蹤</li>
+            <li>高齡友善設計</li>
+            <li>提升生活品質</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- contact -->
+
+  <!-- contact -->
+
+<section class="contact" id="contact">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>聯絡我們</h2>
+      <p>歡迎蒞臨北門全球科技</p>
+    </div>
+
+    <div class="contact-box">
+
+      <div style="margin-bottom:40px;">
+
+        <div class="info-item">
+          <strong>公司名稱：</strong>
+          北門全球科技
+        </div>
+
+        <div class="info-item">
+          <strong>電話：</strong>
+          02-2709-2388
+        </div>
+
+        <div class="info-item">
+          <strong>地址：</strong>
+          台北市大安區新生南路三段54巷2號4樓之一
+        </div>
+
+      </div>
+
+      <!-- Google Map -->
+
+      <div style="border-radius:25px; overflow:hidden;">
+
+        <iframe
+          src="https://www.google.com/maps?q=台北市大安區新生南路三段54巷2號4樓之一&output=embed"
+          width="100%"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <footer>
+    © 2026 北門全球科技｜AI智慧復健展場網站
+  </footer>
+
+</body>
+</html>
